@@ -62,7 +62,7 @@ class Network:
         for element in self.stops:
             L.append(element.getName())
         return L
-        
+    
     def shortestResearch(self,starting,ending):
         if not(self.stopExist(starting)) or not(self.stopExist(ending)):
             return (print('wrong stop'))
@@ -72,12 +72,12 @@ class Network:
         StopsExaminated=[]
         
         while True :
-            if ending in self.getAStop(CurrentNode).getNextStops():
+            if ending in CurrentPath:
                 CurrentPath+[ending]
                 break
             for element in self.getAStop(CurrentNode).getNextStops():
-                if not element in StopsExaminated:
-                    NodeNotVisited+[[element,CurrentPath+[element]]]
+                if not element.getName() in StopsExaminated:
+                    NodeNotVisited.append([element.getName(),CurrentPath+[element.getName()]])
             StopsExaminated+[CurrentNode]
             x = NodeNotVisited.pop(0)
             CurrentNode = x[0]
@@ -85,9 +85,6 @@ class Network:
             
         return CurrentPath
     
-    
             
             
             
-            
-        

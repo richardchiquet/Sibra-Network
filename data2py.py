@@ -92,10 +92,11 @@ for element in regular_path.split():
             stop.addSchedule([regular_date_back[element],regular_date_go[element]])
             Sibra_Networkw.addStops([stop])
             NewStop.append(element)
+            
 for k in Sibra_Networkw.stops:
     print(k.getName())
+    
 c=0
-print(NewStop)
 for element in NewStop:
    if c==0:
        Sibra_Networkw.getAStop(element).addNextStops([Sibra_Networkw.getAStop(NewStop[1])])
@@ -105,9 +106,8 @@ for element in NewStop:
        Sibra_Networkw.getAStop(element).addNextStops([Sibra_Networkw.getAStop(NewStop[c-1]),Sibra_Networkw.getAStop(NewStop[c+1])])
    c+=1
 
-for element in Sibra_Networkw.stops:
-    print(element.getName(),":")
-    print(element.getSchedule())
+print(Sibra_Networkw.shortestResearch("Courier","VIGNIÃˆRES"))
 
 
-Sibra_Networkw.shortestResearch("VIGNIÃˆRES","Bonlieu")
+print(Sibra_Networkw.getStops()[3].getSchedule())
+    
