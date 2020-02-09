@@ -4,32 +4,7 @@ Created on Thu Jan 23 08:54:31 2020
 
 @author: chiquetr
 """
-
-class Stop:
-    
-    
-    def __init__(self,name,schedule=[],nextStops=[]):
-        self.name = name
-        self.nextStops = nextStops
-        self.schedule = schedule
-        
-        
-    def getName(self):
-        return self.name
-    
-    def getNextStops(self):
-        return self.nextStops
-    
-    def getSchedule(self):
-        return self.schedule
-    
-    def addSchedule(self,scheduleToAdd):
-        self.schedule = self.schedule+[scheduleToAdd]
-    
-    def addNextStops(self,StopsToAdd):
-        self.nextStops=self.nextStops+StopsToAdd
-
-
+from Stop import Stop
 
 class Network:
     
@@ -41,6 +16,12 @@ class Network:
     
     def getStops(self):
         return self.stops
+
+    def getStopsName(self):
+        L=[]
+        for element in self.getStops():
+            L.append(element.getName())
+        return L
         
     def addStops(self,stopsToAdd):
         self.stops=self.stops+stopsToAdd
@@ -63,9 +44,7 @@ class Network:
             L.append(element.getName())
         return L
     
-    def shortestResearch(self,starting,ending):
-        if not(self.stopExist(starting)) or not(self.stopExist(ending)):
-            return (print('wrong stop'))
+    def shortest(self,starting,ending):
         CurrentPath = [starting]
         CurrentNode = starting
         NodeNotVisited =[]
@@ -85,6 +64,14 @@ class Network:
             
         return CurrentPath
     
-            
-            
-            
+    def fastest(self,starting,ending,schedule):
+        CurrentPath = [starting]
+        CurrentNode = starting
+        NodeNotVisited =[]
+        StopsExaminated=[]
+        stop = False
+        while stop:
+        pass
+
+    def formost(self,starting,ending,schedule):
+        pass
